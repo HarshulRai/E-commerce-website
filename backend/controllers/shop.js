@@ -13,14 +13,7 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
-  // Product.findAll({ where: { id: prodId } })
-  //   .then(products => {
-  //     res.render('shop/product-detail', {
-  //       product: products[0],
-  //       pageTitle: products[0].title,
-  //       path: '/products'
-  //     });
-  //   })
+
   //   .catch(err => console.log(err));
   Product.findByPk(prodId)
     .then(product => {
@@ -55,13 +48,17 @@ exports.getCart = (req, res, next) => {
    return cart
    .getProducts()
    .then(products => {
-    res.render('shop/cart', {
-      path: '/cart',
-      pageTitle: 'Your Cart',
-      products: products
-    });
+     res.status(200).json({
+       success: true,
+       products:products
+     })
+    // res.render('shop/cart', {
+    //   path: '/cart',
+    //   pageTitle: 'Your Cart',
+    //   products: products
+    // });
    })
-  }).catch(err => console.log(err))
+  }).catch(err => res.status(500).send.json({success:false, message:err}))
   // Cart.getCart(cart => {
   //   Product.fetchAll(products => {
   //     const cartProducts = [];

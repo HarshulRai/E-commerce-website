@@ -134,12 +134,50 @@ function addToCart(productId) {
 console.log(count);
 
 
+// merchSection.addEventListener(`click`,(e)=>{
+
+//      if (e.target.innerHTML===`ADD TO CART`) {
+//         id=e.target.id
+//         notification.classList.add(`active`)
+//         setTimeout(() => {
+//             notification.classList.remove(`active`)
+//         }, 2000);
+//         notification.innerHTML=`<h3>Your product: ${id} is added to cart</h3>`
+//         countItem++
+//         count.innerHTML=`${countItem}`
+//         let div = document.createElement('div')
+//         let _id=e.target.parentNode.parentNode.id
+//         let imgSrc=document.querySelector(`#${_id} img`).src
+//         let title=document.querySelector(`#${_id} h1`).innerText
+//         let price=document.querySelector(`#${_id} p`).innerText
+//         console.log(price);
+
+//                 div.innerHTML=` 
+//                 <div id="${_id}" class="item">
+//                 <span  class="itemTopic"><img src=${imgSrc} alt=""><span>${title}</span></span>
+//                 <span  class="priceTopic">${price}</span>
+//                 <span  class="quantityTopic"><input value="1" type="text" name="" id=""><button class="removeBtn">REMOVE</button></span>
+//                 </div>`
+//                 cartItems.appendChild(div)
+//                 totalPriceTag.innerHTML=parseFloat(totalPriceTag.innerHTML)+parseFloat(price)
+// }
+// })
+
+
+
+
+
+
+
+
+
 const cartbtn=document.getElementById(`cartBtn`)
 const cartContainer=document.getElementById(`cartContainer`)
 
 
 cartbtn.addEventListener(`click`,()=>{
     cartContainer.classList.add(`active`)
+    getCartDetails()
 })
 const seeTheCartBtn=document.getElementById(`seeTheCartBtn`)
 seeTheCartBtn.addEventListener(`click`,()=>{
@@ -173,7 +211,12 @@ document.addEventListener(`click`,(e)=>{
 })
 
 
-
+function getCartDetails() {
+    axios.get(`http://localhost:3000/cart`)
+    .then((response)=>{
+        console.log(response);
+    }).catch((error)=>{console.log(error);})
+}
 
 
 
