@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>E-Commerce</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbarContainer"> >
+            <ul class="nav-list">
+                <li><a href="/Home/index.html">HOME</a></li>
+                <li><a href="/Store/index.html">STORE</a></li>
+                <li><a href="/About Us/">ABOUT</a></li>
+            </ul>
+        </div>
+      <div class="cartBtn">
+          <button id="cartBtn">cart</button>
+          <p id="count">0</p>
+        </div>
+    </nav>
+    <div class="banner">
+        <h1>The Generics</h1>
+    </div>
+    <section class="music-section" id="music-section">
+        <h1 class=heading>music</h1>
+        <div id="music-div" class="musicDiv">
+            <div id='albums' class="albums">
+                <div class="album" id="album1">
+                <h1>Album 1</h1>
+                <div class="imgContainer">
+                    <img src="http://funilab-prod-2.s3.amazonaws.com/2017/10/31/10/31/20/101/Colorslab.png" alt="" srcset="">
+                </div>
+                
+                <div class="details">
+                    <p>$12.99</p>
+                    <button id="1" value="album23" class="priceBtn">ADD TO CART</button>
+                </div>
+                </div>
+                <div class="album" id="album1">
+                    <h1>Album 2</h1>
+                    <div class="imgContainer">
+                        <img src="https://cdn.wallpapersafari.com/87/23/Vcsk2Z.jpg" alt="" srcset="">
+                    </div>
+                    
+                    <div class="details">
+                        <p>$14.99</p>
+                        <button id="2" class="priceBtn">ADD TO CART</button>
+                    </div>
+                    </div>
+                    <div class="album" id="album1">
+                        <h1>Album 3</h1>
+                        <div class="imgContainer">
+                            <img src="https://uploads.dailydot.com/918/6c/LHdMYpp.jpg?auto=compress&fit=scale&fm=pjpg" alt="" srcset="">
+                        </div>
+                        
+                        <div class="details">
+                            <p>$9.99</p>
+                            <button id="3" class="priceBtn">ADD TO CART</button>
+                        </div>
+                        </div>
+                        <div class="album" id="album1">
+                            <h1>Album 4</h1>
+                            <div class="imgContainer">
+                                <img src="https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_960_720.jpg" alt="" srcset="">
+                            </div>
+                            
+                            <div class="details">
+                                <p>$19.99</p>
+                                <button id="4" class="priceBtn" >ADD TO CART</button>
+                            </div>
+                            </div>
+                            
+            </div>
+        </div>
+    </section>
+    <section class="merch-section" id="merch-section">
+        <h1 class=heading>MERCH</h1>
+        <div class="musicDiv">
+            <div class="albums">
+                <div class="album" id="tshirt">
+                <h1>T-Shirt</h1>
+                <div class="imgContainer">
+                    <img src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1648657741_8743286.jpg?format=webp&w=376&dpr=1.0" alt="" srcset="">
+                </div>
+                
+                <div class="details">
+                    <div class="priceDetails" ><span>$</span><p>12.99</p></div>
+                    <button id="tshirt" class="priceBtn">ADD TO CART</button>
+                </div>
+                </div>
+                <div class="album" id="coffeCup">
+                    <h1>Coffe Cup</h1>
+                    <div class="imgContainer">
+                        <img src="https://cdn.shopify.com/s/files/1/0410/0250/0260/products/BM-MV0017_1_1800x1800.jpg?v=1641279626" alt="" srcset="">
+                    </div>
+                    
+                    <div  class="details">
+                        <div class="priceDetails" ><span>$</span><p>18.99</p></div>
+                        
+                        <button id="coffeCup" class="priceBtn">ADD TO CART</button>
+                    </div>
+                    </div>
+                   
+                        
+                           
+            </div>
+        </div>
+    </section>
+    <div class="cartDiv">
+        <button id="seeTheCartBtn" >See the cart</button>
+
+    </div>
+    <section class="cartContainer" id="cartContainer">
+        <button id="cartCloseBtn" class="cartCloseBtn">X</button>
+        <h1>CART</h1>
+        <div class="insideContainer">
+            <div class="titles">
+                <span class="itemTopic"><h5>ITEM</h5></span>
+                <span class="priceTopic"><h5>PRICE</h5></span>
+                <span class="quantityTopic"><h5>QUANTITY</h5></span>
+                
+               
+               
+            </div>
+            <div class="cartItems">
+               
+                
+            </div>
+            <div class="total"><span><h2>Total</h2></span>$<span id="totalPrice">0</span>
+            </div>
+            <div class="purchase"><button id="purchaseBtn" >PURCHASE</button></div>
+        </div>
+    </section>
+    <footer>
+        <div class="title">
+            <h1>The Generics</h1>
+        </div>
+        <div class="socialLinks">
+            <a href="https://www.youtube.com/"> <img src="https://icons.iconarchive.com/icons/dakirby309/simply-styled/32/YouTube-icon.png"/></a>
+            <a href="https://www.spotify.com/us/"><img src="https://icons.iconarchive.com/icons/dakirby309/simply-styled/32/Spotify-icon.png"/></a>
+            <a href="https://www.facebook.com/">  <img src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/32/social-facebook-icon.png"/></a>
+          
+        </div>
+    </footer>
+    <div class="notification">
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+</body>
+</html>
