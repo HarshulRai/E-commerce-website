@@ -21,7 +21,7 @@ const Cart = require('./models/cart');
 const CartItem = require('./models/cart-item');
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
   User.findByPk(1)
@@ -43,10 +43,11 @@ Cart.belongsToMany(Product,{through:CartItem})
 Product.belongsToMany(Cart,{through:CartItem})
 
 sequelize
-  
+  // .sync({ force: true })
   .sync()
   .then(result => {
-    return User.findByPk(1);    
+    return User.findByPk(1);
+    // console.log(result);
   })
   .then(user => {
     if (!user) {
@@ -56,7 +57,8 @@ sequelize
   }).then((user) => {
     return user.createCart();
   })
-  .then(cart => {    
+  .then(cart => {
+    // console.log(user);
     app.listen(3000);
   })
   .catch(err => {

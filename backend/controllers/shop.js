@@ -13,7 +13,15 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
-
+  // Product.findAll({ where: { id: prodId } })
+  //   .then(products => {
+  //     res.render('shop/product-detail', {
+  //       product: products[0],
+  //       pageTitle: products[0].title,
+  //       path: '/products'
+  //     });
+  //   })
+  //   .catch(err => console.log(err));
   Product.findByPk(prodId)
     .then(product => {
       res.render('shop/product-detail', {
@@ -54,7 +62,20 @@ exports.getCart = (req, res, next) => {
     });
    })
   }).catch(err => console.log(err))
-
+  // Cart.getCart(cart => {
+  //   Product.fetchAll(products => {
+  //     const cartProducts = [];
+  //     for (product of products) {
+  //       const cartProductData = cart.products.find(
+  //         prod => prod.id === product.id
+  //       );
+  //       if (cartProductData) {
+  //         cartProducts.push({ productData: product, qty: cartProductData.qty });
+  //       }
+  //     }
+      
+  //   });
+  // });
 };
 
 exports.postCart = (req, res, next) => {
@@ -67,9 +88,7 @@ exports.postCart = (req, res, next) => {
     return cart.getProducts({where: { id: prodId}})
   }).then(products => {
    let product;
-   if (products.length>0) {
-     product=products[0];
-   }
+   
   
    if (product) {
      let oldQuantity = product.cartItem.quantity
@@ -83,10 +102,13 @@ exports.postCart = (req, res, next) => {
   }).then(product=>{
     return fetchedCart.addProduct(product,{through:{quantity:newQuantity}})
   })
-  .then(()=>res.redirect('/cart'))
+  .then(()=>res.status(200).json({success:true,message:'succesfully added the product'}))
   
-  .catch(err => {console.log(err);})
+  .catch(err => {res.status(500).json({success:false,message:`err occured`})})
 };
+
+
+
 
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
